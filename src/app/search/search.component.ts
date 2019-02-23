@@ -3,6 +3,7 @@ import { FlashFirestoreService } from '../flash-firestore.service';
 import { Observable } from 'rxjs';
 import { User } from '../user';
 import { Guide } from '../guide';
+import { TextBlock } from '../text-block';
 
 @Component({
   selector: 'app-search',
@@ -13,12 +14,12 @@ export class SearchComponent implements OnInit {
 
 	@Input() showResults: boolean;
 	@Input() users: User[] = [];
-	@Input() guides: Guide[];
+	@Input() guides: Guide[] = [];
 	
 	constructor(private flashService: FlashFirestoreService) { }
 
  	ngOnInit() {
- 		this.getAllUsers();
+ 		//this.getAllUsers();
  		
 	}
 
@@ -38,8 +39,17 @@ export class SearchComponent implements OnInit {
 
 		for (var i = 0; i < this.users.length; i++) {
 			currentUser = this.users[i];
-			this.flashService.getPublishedGuides(currentUser).subscribe(guides => userGuides = userGuides.concat(guides));
+			this.flashService.getPublishedGuides(currentUser).subscribe(guides => this.guides = this.guides.concat(guides));
 		}
 		
+	}
+
+	loadData(userId:string, guideId:string,guideKey:number):void{
+		//get text and picture data of the chosen guide
+		let textData: TextBlock[] = [];
+		let picData: Object[] = [];
+
+		this.flashService.getGuideTextData(userId,guideId,guideKey).subscribe(text => textData = text);
+		this.flashService.getGuidePictureData(userId,guideId,guideKey).subscribe(imgs => picData = imgs);
 	}
 }
