@@ -13,9 +13,6 @@ import { PictureBlockComponent } from './picture-block/picture-block.component';
 import * as firebase from 'firebase/app';
 
 
-
-/** when service is provided at root level, Angular creates a singular, shared instance of HeroService and injects into any class that asks for it
-	Registering the provider in the @Injectable metadata lets Angular optimize the app by removing the service if it ends up unused **/
 @Injectable({
   providedIn: 'root'
 })
