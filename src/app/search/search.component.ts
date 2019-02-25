@@ -12,7 +12,7 @@ import { TextBlock } from '../text-block';
 })
 export class SearchComponent implements OnInit {
 
-	@Input() showResults: boolean;
+	@Input() showResults: boolean = false;
 	@Input() users: User[] = [];
 	@Input() guides: Guide[] = [];
 	
@@ -24,7 +24,11 @@ export class SearchComponent implements OnInit {
 	}
 
 	getAllUsers():void{
-		this.flashService.getAllUsers().subscribe(users => this.getUserPublishedGuides(users));
+		if (this.showResults == false) {
+			this.flashService.getAllUsers().subscribe(users => this.getUserPublishedGuides(users));
+			this.showResults = true;
+		}
+		
 		
 	}
 

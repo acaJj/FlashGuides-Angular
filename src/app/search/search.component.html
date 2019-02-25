@@ -1,17 +1,12 @@
-<a id='btnSearch' class="ui-btn ui-btn-icon-left ui-icon-action" (click)="getAllUsers()">Search</a>
+<div class="search">
+	<a id='search-button' class="ui-btn ui-btn-icon-left ui-icon-action" (click)="getAllUsers()">Search</a>
 
-<div *ngIf="users" id="user-list">
-	<ul id="user-results">
-		<li *ngFor="let user of users">
-			{{user.id}}
-		</li>
-	</ul>
-</div>
-
-<div id="search-list">
-	<ul id="search-results">
-		<li *ngFor="let guide of guides">
-			<a routerLink="/published/{{guide.creatorId}}/{{guide.key}}">{{guide.title}}</a>
-		</li>
-	</ul>
+	<div id="search-list" *ngIf="showResults">
+		<ul id="search-results">
+			<h6>Search Results:</h6>
+			<li *ngFor="let guide of guides">
+				<a routerLink="/published/{{guide.creatorId}}/{{guide.key}}">{{guide.title}}</a>
+			</li>
+		</ul>
+	</div>
 </div>

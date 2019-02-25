@@ -1,0 +1,11 @@
+.text-block{
+	display: inline-block;
+	width: 900px;
+	border-top: 2px solid skyblue;
+	padding: 20px 0;
+	margin: 0;
+}
+
+.text{
+	font-size: 24px;
+}

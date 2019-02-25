@@ -49,9 +49,16 @@ export class GuideViewerComponent implements OnInit {
 		let completedGuide: DataBlock[] = [];
 		//gets the guide text, followed by the guide images, and then sends the objects to the createGuide to add the components to the screen
 		this.flashService.getGuideTextData(userId,guideId,guideKey).subscribe(text =>{
-			 completedGuide.concat(text);
+			console.log("loading text" + text);
+			for (var i = 0; i < text.length; i++) {
+			 	completedGuide.push(text[i]);
+			}
 			 this.flashService.getGuidePictureData(userId,guideId,guideKey).subscribe(imgs => {
-			 	completedGuide.concat(imgs);
+			 	console.log("loading pics");
+			 	for (var i = 0; i < imgs.length; i++) {
+			 		completedGuide.push(imgs[i]);
+				}
+			 	console.log("completed guide: " + completedGuide);
 			 	completedGuide = this.orderGuide(completedGuide);
 			 	this.createGuide(completedGuide);
 			 });
@@ -66,7 +73,9 @@ export class GuideViewerComponent implements OnInit {
 		var index = 0;
 		var currStep = 1;
 		var i = 0;
+console.log(data.length);
 		while(orderedGuide.length != data.length){
+			console.log("ordering");
 			if ((data[i].data.stepNumber == currStep) && (data[i].data.placement == index)) {
 				index++;
 				orderedGuide.push(data[i]);
