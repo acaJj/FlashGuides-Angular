@@ -14,8 +14,5 @@ We use Google Firebase for our back-end, storing all user information and guide 
 
 The Firebase configuration used to setup the app is not included in this repo so that our API keys don't get stolen
 
-## Current Goals
-Right now, I am currently working to get guides displayed on screen just as they were on the web site.
-
 ## Next Steps
 The next thing to do would be to allow users to favorite and save guides so they don't have to search the ones they want every time. In addition, a full-text search feature for the web app similar to our mobile app will also be implemented.
