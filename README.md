@@ -5,8 +5,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## What's this project for anyway?
 This project contains code for a desktop web application for my 2018 Capstone project at Sheridan College's Software Development and Network Engineering Program. This project was not used for the Capstone and is instead an expansion on the project done by me as a way to further develop my programming skills while continuing off the work I already did. We originally made a simple website with Javascript hosted on google's servers as a way to display guides. This project will not only do that but become more fully functional; the ultimate goal is to have a fully functional web app where users can view and manage their favorite guides
 
-To see the project in action, [click here.](https://acajj.github.io/FlashGuides-Angular/search)
-
 ## Project Description
 The project was a mobile application that focuses on creating quick how-to guides on an Android phone. Users are able to create an account and from there create a guide on anything they want. They can save guides and return to editing them later, or publish them for others to view.
 
